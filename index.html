@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Bitcoin exchange</title>
+	<meta name="description" content="Bitcoin exchange">
+	
+  <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      
+       $('#upload').click(function(){
+
+                    console.log('upload button clicked!')
+                    var fd = new FormData();    
+                    fd.append( 'userfile', $('#userfile')[0].files[0]);
+
+                    $.ajax({
+                      url: 'http://localhost:3000/upload',
+                      data: fd,
+                      processData: false,
+                      contentType: false,
+                      type: 'POST',
+                      success: function(data){
+                        $("#json").html(JSON.stringify(data, undefined, 2)); 
+        $("#download").html("<a href='/download.json' download>Download JSON</a>"); 
+                        
+
+                      }
+                    });
+                });
+
+  $('#userfile').on("change",function(e){
+    var files = $(this)[0].files;
+    if (files.length ==1) {
+      var filename = e.target.value.split('\\').pop();
+      $('#label_span').text(filename);
+    }
+  });
+
+
+          $(function(){
+    $('#btn-upload').click(function(e){
+        e.preventDefault();
+        $('#userfile').click();}
+    );
+});
+
+  //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 200) {
+      $('.scrollToTop').fadeIn(400);
+    } else {
+      $('.scrollToTop').fadeOut(400);
+    }
+  });
+  
+  //Click event to scroll to top
+  $('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+});
+</script>
+	<style>
+  body{
+    padding-top: 40px;
+  }
+  </style>
+
+<body data-spy="scroll" data-target="#my-navbar" style="
+padding: 0;
+margin: 0;">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+  		<div class="container">
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  				</button>
+
+  				<a href="" class="navbar-brand">eBitcoin</a>
+  			</div><!-- Navbar Header-->
+  			<div class="collapse navbar-collapse" id="navbar-collapse">
+  				
+  			<a href="" class="btn btn-primary navbar-btn navbar-right">Sign Up/Log In</a>
+  				<ul class="nav navbar-nav">
+  					<li><a href="#about">About Us</a> 
+  					<li><a href="#offerings">Our offerings</a> 
+  					<li><a href="#clientele">Clientele</a> 
+  					<li><a href="#achievements">Achievements</a> 
+  					<li><a href="#contact">Contact Us</a> 
+  				</ul>
+  			</div>
+  		</div>
+  	</nav>
+
+      
+  		<div class="jumbotron">
+  		<div class="container text-center">
+  			<h1>What is bitcoin?</h1>
+  			<p>Bitcoin is the world’s first digital decentralized currency and payment network. It helps us connect financially just like the Internet has helped us connect socially.<br/>
+Bitcoin is the Internet of money.</p>
+
+  			<div class="btn-group"><a href="https://economictimes.indiatimes.com/markets/stocks/news/what-is-bitcoin-and-how-does-it-work/articleshow/60701874.cms" target="_blank"><button class="button button1">Learn more</button></a>
+          <div class="form-div">
+            <form><label for="userfile" class="input-label" id="btn-upload">
+              <i class="fa fa-upload"></i>
+              <span id="label_span">Choose a file</span>
+            </label>
+            <input type="file" name="userfile" id="userfile" size="20" style=" visibility: hidden;"><input type="button" id="upload" value="upload" class="button button2" />
+          </form><div id="download" ></div>
+          </div>
+  			</div>
+  		</div>
+  	</div>
+  -->
+
+
+
+    <a href="#" class="scrollToTop"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+
+
+
+
+    
+<div class="container">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="
+  height:460px;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="images/first.jpg" alt="" style="height: 460px;width: 1138px;">
+       
+      </div>
+
+      <div class="item">
+        <img src="images/bitcoin_exchange.jpg" alt="" style="height: 460px;width: 1138px;">
+        
+      </div>
+    
+      <div class="item">
+        <img src="images/slide.jpg" alt="" style="height: 460px;width: 1138px;">
+       
+      </div>
+
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<br>
+
+    
+
+        <div class="container" id="about">
+          <hr/>
+        <div ><h2><strong>About Us</strong></h2>
+          </div>
+        <div><p><blockquote>We are a team of passionate Bitcoin enthusiasts
+who have come together to build some amazing
+products to make it easier for Bitcoin users across India.Our trade engine is now the focus for us at the moment, as we get a tool to finally direct people who want to get involved with Bitcoin. We launched as a mock trading exchange where each user is given test rupees and test Bitcoin. In order to make this a bit more interesting, we are rewarding the top 20 user balances at the end of its first month. It is still very early for India and we are hoping to see a lot more active participation through 2015.<footer>Purvil Jain</footer></blockquote></p>
+</div>
+    </div>
+    <div class=" text-center"><h3><strong>Our Team</strong></h3></div>
+   <br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail container1">
+        <a href="https://www.linkedin.com/in/purvil-jain-56684714b/" target="_blank">
+          <img src="images/IMG_20170111_101954.jpg" alt="first" style="width:100%" class="image">
+          <div class="middle">
+    <div class="text">CEO</div>
+  </div>
+          <div class="caption text-center">
+            <p><h4><strong>Purvil Jain</strong></h4><small>CEO/FOUNDER</small></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail container1">
+        <a href="images/second.jpg" target="_blank">
+          <img src="images/second.jpg" alt="second" style="width:100%;height: 465px;" class="image">
+          <div class="middle">
+    <div class="text">Co-FOUNDER</div>
+  </div>
+          <div class="caption text-center">
+            <p><h4><strong>Zak Johnson</strong></h4><small>Co-FOUNDER</small></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail container1">
+        <a href="images/last.jpg" >
+          <img src="images/last.jpg" alt="Fjords" style="width:100%;height: 465px;" class="image">
+          <div class="middle">
+    <div class="text">MARKETING</div>
+  </div>
+          <div class="caption text-center">
+            <p><h4><strong>Remy Lowrey</strong></h4><small>MARKETING HEAD</small></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+
+
+<!--images/IMG_20170111_101954.jpg-->
+<hr>
+    <div class="container" id="offerings">
+      <section>
+        <div class="page-header" >
+          <h2><strong>Our offerings.<small> What makes us the best?</small></h2>
+        </div><br>
+<div class="row">
+          <div class="col-sm-4">
+            <div class="panel panel-default text-center" >
+              <div class="panel-body">
+                <span class="glyphicon glyphicon-cog" style="font-size: 65px;"></span>
+                <h4>Automated</h4>
+                <p>Fully automated bitcoin deposits and withdrawals.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="panel panel-default text-center" style="height: 190px;">
+              <div class="panel-body">
+                <span class="glyphicon glyphicon-ok-circle" style="font-size: 65px;"></span>
+                <h4>Trade free</h4>
+                <p>Low exxchange trading free.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="panel panel-default text-center" style="height: 190px;">
+              <div class="panel-body">
+                <span class=" glyphicon glyphicon-thumbs-up" style="font-size: 65px;"></span>
+                <h4>This is the Heading</h4>
+                <p>First Bitcoin Exchange in 
+India with a REST Api</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- end row -->
+      </section>
+    </div>
+<br><br>
+  
+  <div class="container"><hr></div>
+
+    <div class="container" id="clientele">
+    <section>
+      <div class="page-header" id="features">
+          <h2><strong>Clientele.</strong><small> Some happy clients...</small></h2>
+        </div><!-- End Page Header -->
+
+        <div class="row">
+          <div class="col-sm-8">
+            <h3>Grace Garrett</h3>
+            <p>Simple app and lowest price in India. Kudos for making bitcoin experience in a user friendly way. Hope this helps in taking bitcoins to the masses in India.</p>
+          </div>
+          <div class="col-sm-4">
+            <img src="images/GraceGarrett.jpg" class="img-responsive img-circle" alt="image" style="height: 300px;width: 300px;">
+          </div>
+        </div><!-- End row -->
+        <div class="row">
+          <div class="col-sm-8">
+            <h3>Adam Holland</h3>
+            <p>Nice application and support. This is the first Bitcoin App in India. I hope eBitcoin will keep happy to its customers by providing fast service. Keep on updating in app with additional services. I Love It!</p>
+          </div>
+          <div class="col-sm-4">
+            <img src="images/AdamHolland.jpg" class="img-responsive img-circle" alt="image" style="height: 300px;width: 300px;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <h3>Quan Guanyu</h3>
+            <p>Excellent. Best android application for bitcoin wallet, very nice, safe and secure, good services.</p>
+          </div>
+          <div class="col-sm-4">
+            <img src="images/QuanGuanyu.jpg" class="img-responsive img-circle" alt="image" style="height: 300px;width: 300px;">
+          </div>
+        </div>
+        <br/>
+
+
+
+        <br><hr>
+        <div class="container text-center" id="achievements">
+          <h2><strong>As Featured On</strong></h2>
+          <div class="row">
+    <div class="col-sm-4" ><br><img src="images/theeconomictimes.jpeg" class="img-responsive" style="height: 200px;width: 275px;"></div>
+    <div class="col-sm-4" ><img src="images/forbesindia.jpg" class="img-responsive" style="height: 250px;"></div>
+    <div class="col-sm-4"><br><br><br><br><img src="images/theindianexpress.jpg" class="img-responsive" style="height: 80px;width: 225px;"></div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4"><img src="images/bitcoin-magazine.png" class="img-responsive" style="height: 160px;width: 275px;"></div>
+  <div class="col-sm-4"><br><img src="images/cointelegraph.jpg" class="img-responsive" style="height: 100px;width: 275px;"></div>
+  <div class="col-sm-4"><br><img src="images/techinasia.png" class="img-responsive" style="height: 120px;width: 275px"></div>
+</div>
+        </div>
+        <hr>
+    <br><br>
+     <footer>
+
+    
+<section id="contact">
+  <div class="container-fluid ">
+      <div >
+      <h2><strong>Contact Us</strong></h2>
+      </div>
+      <br/>
+  
+  <div class="row">
+    <div class="col-md-7 embed-responsive embed-responsive-16by9">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85972.38203273033!2d-122.17066155174744!3d47.67204903830916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54900cad2000ee23%3A0x5e0390eac5d804f2!2sRedmond%2C+WA%2C+USA!5e0!3m2!1sen!2sin!4v1514538704830" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      
+      <div class="col-md-5">
+          <h4><strong>Get in Touch</strong></h4>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control"  placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control"  placeholder="E-mail">
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-control"  placeholder="Phone">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control"  rows="3" placeholder="Message"></textarea>
+          </div>
+          <button class="btn btn-default" type="submit" name="button">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Submit
+          </button>
+        </form>
+      </div>    </div>
+  </div>
+</section>
+    </footer>
+
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>	
+</html>
