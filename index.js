@@ -68,11 +68,19 @@ app.get('/images/AdamHolland.jpg',function(req,res){
 app.get('/images/QuanGuanyu.jpg',function(req,res){
 	res.sendFile(__dirname + '/images/QuanGuanyu.jpg');
 });
+app.get('/images/sep.png',function(req,res){
+	res.sendFile(__dirname + '/images/sep.png');
+});
+
+
+
+
 
 
 app.get('/download.json', function (req, res) {
     res.sendFile('files/data.json', { root: __dirname });
 });
+
 
 
 
